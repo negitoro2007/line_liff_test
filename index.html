@@ -63,7 +63,7 @@
 
           console.log(liff.getLanguage());
           console.log(liff.isLoggedIn());
-          liff.getProfile.then((profile) => {
+          liff.getProfile().then((profile) => {
             document.querySelector(
               "body > div > div > ul > li:nth-child(1)"
             ).textContent = "displayName:" + profile.displayName;
