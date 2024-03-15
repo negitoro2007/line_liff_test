@@ -47,19 +47,19 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      alert("Start");
+      //alert("Start");
       document.querySelector(
         "body > div > div > ul > li:nth-child(4)"
       ).textContent = navigator.userAgent;
 
-      alert("init");
+      //alert("init");
       liff
         .init({
           liffId: "2004062722-8QeyVePW", // Use own liffId
         })
         .then(() => {
           //liff.login();
-          alert("login");
+          //alert("login");
 
           console.log(liff.getLanguage());
           console.log(liff.isLoggedIn());
@@ -74,7 +74,7 @@
           ).textContent = "LineVersion:" + liff.getLineVersion();
         })
         .catch((err) => {
-          alert("error");
+          //alert("error");
           // Error happens during initialization
           document.querySelector(
             "body > div > div > ul > li:nth-child(1)"
@@ -85,12 +85,12 @@
         });
 
       liff.ready.then(() => {
-        alert("done");
+        //alert("done");
         document.querySelector(
           "body > div > div > ul > li:nth-child(4)"
         ).textContent = "OK";
       });
-      alert("end");
+      //alert("end");
     </script>
   </body>
 </html>
