@@ -51,44 +51,39 @@
       document.querySelector(
         "body > div > div > ul > li:nth-child(4)"
       ).textContent = navigator.userAgent;
-      try {
-        alert("init");
-        liff
-          .init({
-            liffId: "2004062722-8QeyVePW", // Use own liffId
-          })
-          .then(() => {
-            //liff.login();
-            alert("login");
 
-            console.log(liff.getLanguage());
-            console.log(liff.isLoggedIn());
-            document.querySelector(
-              "body > div > div > ul > li:nth-child(1)"
-            ).textContent = liff.getLanguage();
-            document.querySelector(
-              "body > div > div > ul > li:nth-child(2)"
-            ).textContent = "isLoggedIn:" + liff.isLoggedIn().toString();
-            document.querySelector(
-              "body > div > div > ul > li:nth-child(3)"
-            ).textContent = liff.getLineVersion();
-          })
-          .catch((err) => {
-            alert("error");
-            // Error happens during initialization
-            document.querySelector(
-              "body > div > div > ul > li:nth-child(1)"
-            ).textContent = "ERROR";
+      alert("init");
+      liff
+        .init({
+          liffId: "2004062722-8QeyVePW", // Use own liffId
+        })
+        .then(() => {
+          //liff.login();
+          alert("login");
 
-            console.log(err.code, err.message);
-            liff.closeWindow();
-          });
-      } catch {
-        alert("error");
-        document.querySelector(
-          "body > div > div > ul > li:nth-child(4)"
-        ).textContent = "ERROR";
-      }
+          console.log(liff.getLanguage());
+          console.log(liff.isLoggedIn());
+          document.querySelector(
+            "body > div > div > ul > li:nth-child(1)"
+          ).textContent = "UserId:" + liff.getProfile().userId;
+          document.querySelector(
+            "body > div > div > ul > li:nth-child(2)"
+          ).textContent = "UserName:" + liff.getProfile().displayName;
+          document.querySelector(
+            "body > div > div > ul > li:nth-child(3)"
+          ).textContent = "LineVersion:" + liff.getLineVersion();
+        })
+        .catch((err) => {
+          alert("error");
+          // Error happens during initialization
+          document.querySelector(
+            "body > div > div > ul > li:nth-child(1)"
+          ).textContent = "ERROR";
+
+          console.log(err.code, err.message);
+          liff.closeWindow();
+        });
+
       liff.ready.then(() => {
         alert("done");
         document.querySelector(
