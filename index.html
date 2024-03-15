@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <title>LIFF_TEST</title>
+  </head>
+  <body style="height: 100%">
+    <div
+      style="
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="card" style="width: 18rem">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+      </div>
+    </div>
+    <script
+      charset="utf-8"
+      src="https://static.line-scdn.net/liff/edge/2/sdk.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      alert("Start");
+      document.querySelector(
+        "body > div > div > ul > li:nth-child(4)"
+      ).textContent = navigator.userAgent;
+      try {
+        alert("init");
+        liff
+          .init({
+            liffId: "2004062722-8QeyVePW", // Use own liffId
+          })
+          .then(() => {
+            //liff.login();
+            alert("login");
+
+            console.log(liff.getLanguage());
+            console.log(liff.isLoggedIn());
+            document.querySelector(
+              "body > div > div > ul > li:nth-child(1)"
+            ).textContent = liff.getLanguage();
+            document.querySelector(
+              "body > div > div > ul > li:nth-child(2)"
+            ).textContent = "isLoggedIn:" + liff.isLoggedIn().toString();
+            document.querySelector(
+              "body > div > div > ul > li:nth-child(3)"
+            ).textContent = liff.getLineVersion();
+          })
+          .catch((err) => {
+            alert("error");
+            // Error happens during initialization
+            document.querySelector(
+              "body > div > div > ul > li:nth-child(1)"
+            ).textContent = "ERROR";
+
+            console.log(err.code, err.message);
+            liff.closeWindow();
+          });
+      } catch {
+        alert("error");
+        document.querySelector(
+          "body > div > div > ul > li:nth-child(4)"
+        ).textContent = "ERROR";
+      }
+      liff.ready.then(() => {
+        alert("done");
+        document.querySelector(
+          "body > div > div > ul > li:nth-child(4)"
+        ).textContent = "OK";
+      });
+      alert("end");
+    </script>
+  </body>
+</html>
