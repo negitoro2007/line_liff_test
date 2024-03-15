@@ -55,8 +55,7 @@
         alert("init");
         liff
           .init({
-            liffId: "2004062722-8QeyVePW",
-            withLoginOnExternalBrowser:true// Use own liffId
+            liffId: "2004062722-8QeyVePW", // Use own liffId
           })
           .then(() => {
             liff.login();
@@ -75,7 +74,7 @@
             ).textContent = liff.getLineVersion();
           })
           .catch((err) => {
-            alert("error");
+            alert("Login failed");
             // Error happens during initialization
             document.querySelector(
               "body > div > div > ul > li:nth-child(1)"
