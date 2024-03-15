@@ -60,9 +60,7 @@
         .then(() => {
           //liff.login();
           //alert("login");
-          liff.getProfile().then((profile) => {
-            prf = profile;
-          });
+
           console.log(liff.getLanguage());
           console.log(liff.isLoggedIn());
           document.querySelector(
@@ -70,7 +68,7 @@
           ).textContent = "UserId:" + prf.userId;
           document.querySelector(
             "body > div > div > ul > li:nth-child(2)"
-          ).textContent = "UserName:" + prf.displayName;
+          ).textContent = "UserName:" + liff.getProfile();
           document.querySelector(
             "body > div > div > ul > li:nth-child(3)"
           ).textContent = "LineVersion:" + liff.getLineVersion();
