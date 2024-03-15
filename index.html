@@ -60,15 +60,17 @@
         .then(() => {
           //liff.login();
           //alert("login");
-
+          liff.getProfile().then((profile) => {
+            prf = profile;
+          });
           console.log(liff.getLanguage());
           console.log(liff.isLoggedIn());
           document.querySelector(
             "body > div > div > ul > li:nth-child(1)"
-          ).textContent = "UserId:" + liff.getProfile().userId;
+          ).textContent = "UserId:" + prf.userId;
           document.querySelector(
             "body > div > div > ul > li:nth-child(2)"
-          ).textContent = "UserName:" + liff.getProfile().displayName;
+          ).textContent = "UserName:" + prf.displayName;
           document.querySelector(
             "body > div > div > ul > li:nth-child(3)"
           ).textContent = "LineVersion:" + liff.getLineVersion();
