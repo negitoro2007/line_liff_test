@@ -31,19 +31,13 @@
         crossorigin="anonymous"></script>
     <script>liff
             .init({
-                liffId: "2004062722-8QeyVePW", // Use own liffId
+                liffId: "2004062722-8QeyVePW", 
             })
             .then(() => {
                 document.getElementsByName("accessToken")[0].value = liff.getAccessToken();
                 document.getElementById("submit").click();
             })
             .catch((err) => {
-                //alert("error");
-                // Error happens during initialization
-                document.querySelector(
-                    "body > div > div > ul > li:nth-child(1)"
-                ).textContent = "ERROR";
-
                 console.log(err.code, err.message);
                 liff.closeWindow();
             });
