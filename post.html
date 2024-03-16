@@ -20,6 +20,7 @@
             })
             .then(() => {
                 document.getElementsByName("accessToken")[0].value = liff.getAccessToken();
+                document.getElementById("submit").click();
             })
             .catch((err) => {
                 //alert("error");
